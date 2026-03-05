@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --void: #02020a;
+  --deep: #07071a;
+  --surface: #0c0c22;
+  --card: #101028;
+  --elevated: #161636;
+  --hover: #1c1c42;
+  --gold: #e8b84b;
+  --gold-bright: #ffd166;
+  --gold-dim: rgba(232,184,75,0.12);
+  --gold-glow: rgba(232,184,75,0.3);
+  --crimson: #e84b6a;
+  --emerald: #06d6a0;
+  --sky: #48cae4;
+  --text: #eeeef7;
+  --text-2: #9595b8;
+  --text-3: #4a4a6a;
+  --border: rgba(255,255,255,0.04);
+  --border-2: rgba(255,255,255,0.08);
+  --border-gold: rgba(232,184,75,0.2);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Custom Cursor ─── */
+#cursor {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--gold); border-radius: 50%;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+}
+#cursor-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 1.5px solid rgba(232,184,75,0.4); border-radius: 50%;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%,-50%);
+  transition: all 0.15s ease-out;
+}
+body.cursor-hover #cursor { width: 5px; height: 5px; }
+body.cursor-hover #cursor-ring { width: 56px; height: 56px; border-color: var(--gold); }
+
+/* ─── Grain ─── */
+#grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9997; opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  animation: grainAnim 0.4s steps(2) infinite;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--crimson)); border-radius: 2px; }
+
+/* ─── Keyframes ─── */
+@keyframes grainAnim   { 0%,100%{transform:translate(0,0)} 25%{transform:translate(-2%,2%)} 50%{transform:translate(2%,-2%)} 75%{transform:translate(-1%,-1%)} }
+@keyframes fadeUp      { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn      { from{opacity:0} to{opacity:1} }
+@keyframes scaleIn     { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+@keyframes spin        { to{transform:rotate(360deg)} }
+@keyframes spinR       { to{transform:rotate(-360deg)} }
+@keyframes float       { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes shimmer     { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes pulse       { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes progressW   { from{width:0} }
+@keyframes filmScroll  { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes filmScrollR { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+@keyframes gradShift   { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes starFall    { 0%{transform:translateY(-20px);opacity:0} 10%{opacity:1} 90%{opacity:0.6} 100%{transform:translateY(100vh);opacity:0} }
+@keyframes introSlide  { 0%{transform:scaleX(0);transform-origin:left} 100%{transform:scaleX(1);transform-origin:left} }
+@keyframes scanLine    { 0%{top:0%;opacity:0.8} 100%{top:100%;opacity:0} }
+@keyframes popIn       { 0%{opacity:0;transform:scale(0.6) rotate(-5deg)} 70%{transform:scale(1.05)} 100%{opacity:1;transform:scale(1) rotate(0)} }
+@keyframes slideLeft   { from{opacity:0;transform:translateX(30px)} to{opacity:1;transform:translateX(0)} }
+@keyframes countNum    { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes borderGlow  { 0%,100%{border-color:rgba(232,184,75,0.15)} 50%{border-color:rgba(232,184,75,0.4)} }
+@keyframes ripple      { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(2.5);opacity:0} }
