@@ -322,8 +322,7 @@ export default function HomePage() {
                   background: 'linear-gradient(135deg, var(--card), var(--elevated))',
                   border: '1px solid var(--border-gold)', borderRadius: '20px',
                   padding: '28px 32px', display: 'flex', alignItems: 'center', gap: '16px',
-                  animation: 'fadeIn 0.3s ease', backdropFilter: 'blur(20px)',
-                  animation2: 'borderGlow 2s ease infinite',
+                  animation: 'fadeIn 0.3s ease,borderGlow 2s ease infinite', backdropFilter: 'blur(20px)',
                 }}>
                   <div style={{ position: 'relative', width: '44px', height: '44px', flexShrink: 0 }}>
                     <div style={{ position: 'absolute', inset: 0, border: '2px solid rgba(232,184,75,0.1)', borderTopColor: 'var(--gold)', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
